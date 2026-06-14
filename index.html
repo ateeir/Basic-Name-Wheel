@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IntroWheel AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    @keyframes glowPulse {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+        transform: scale(1);
+      }
+      50% {
+        text-shadow: 0 0 25px rgba(59, 130, 246, 0.8), 0 0 45px rgba(59, 130, 246, 0.5);
+        transform: scale(1.05);
+      }
+    }
+    .animate-glow-pulse {
+      animation: glowPulse 2s ease-in-out infinite;
+    }
+    @keyframes subtleRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .bg-spin-slow {
+      animation: subtleRotate 60s linear infinite;
+    }
+
+    /* Wheel Glow Animations */
+    @keyframes wheel-spin-glow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes wheel-pulse-glow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.03); }
+    }
+
+    .animate-wheel-rotate {
+      animation: wheel-spin-glow 8s linear infinite;
+    }
+    .animate-wheel-rotate-fast {
+      animation: wheel-spin-glow 2s linear infinite;
+    }
+    .animate-wheel-pulse {
+      animation: wheel-pulse-glow 3s ease-in-out infinite;
+    }
+    .animate-wheel-pulse-fast {
+      animation: wheel-pulse-glow 1s ease-in-out infinite;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    .animate-confetti {
+      position: absolute;
+      animation: confettiFall 4s linear infinite;
+    }
+
+    @keyframes sparkleScale {
+      0%, 100% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    .animate-sparkle {
+      animation: sparkleScale 1.5s ease-in-out infinite;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
